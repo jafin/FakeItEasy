@@ -74,7 +74,7 @@ Or you can create a fake object, that is a wrapper around the faked object, this
 
 In order to pass arguments to the constructor of fakes of classes you'd use a lambda expression rather than the common method of passing object arrays representing the arguments. The expression will actually never be invoked so the constructor call in the following example will not be invoked but the arguments will be extracted from it.
 
-    var foo = A.Fake<Foo>(() => new Foo("string passed to constructor"));
+    var foo = A.Fake<Foo>(x => x.WithArgumentsForConstructor(() => new Foo("string passed to constructor")));
 
 **Faking an interface and assigning additional custom attributes to the faked class:**
 
